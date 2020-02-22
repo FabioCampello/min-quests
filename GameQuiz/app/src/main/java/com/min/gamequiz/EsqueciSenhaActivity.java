@@ -2,23 +2,21 @@ package com.min.gamequiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class CadastrarActivity extends AppCompatActivity {
+public class EsqueciSenhaActivity extends AppCompatActivity {
 
-    private Button btn_cadastrar;
+    private Button btn_enviar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar);
+        setContentView(R.layout.activity_esqueci_senha);
 
-        // BOTÃO CADASTRO DE UM NOVO USUÁRIO
-        btn_cadastrar = (Button) findViewById(R.id.btnCadastrar);
-        btn_cadastrar.setOnClickListener(new View.OnClickListener() {
+        btn_enviar = (Button) findViewById(R.id.btnEnviar);
+        btn_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

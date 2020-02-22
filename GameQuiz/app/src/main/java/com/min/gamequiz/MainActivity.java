@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn_entrar;
     private Button btn_novo_cadastro;
+    private Button btn_esquecisenha;
 
     public static final String EMAIL = "email";
     public static final String SENHA = "senha";
@@ -23,14 +24,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // BOTÃO LOGIN
         btn_entrar = (Button) findViewById(R.id.btnEntrar);
         btn_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendMessage(v);
+                autenticar(v);
             }
         });
 
+        // BOTÃO NOVO CADASTRO DE USUÁRIO
         btn_novo_cadastro = (Button) findViewById(R.id.btnNovoCadastro);
         btn_novo_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +42,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // BOTÃO ESQUECI A SENHA
+        btn_esquecisenha = (Button) findViewById(R.id.btnEsqueciSenha);
+        btn_esquecisenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                esqueciAhSenha(v);
+            }
+        });
+
     }
 
-    public void sendMessage(View view) {
+    // LOGIN/AUTENTICAÇÃO
+    public void autenticar(View view) {
         Intent intent = new Intent(this, TelaInicialActivity.class);
         EditText editTextEmail = (EditText) findViewById(R.id.edtEmail);
         EditText editTextSenha = (EditText) findViewById(R.id.edtSenha);
@@ -54,8 +67,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void cadastrarNovoUsuario(View v) {
+    // CADASTRAR NOVO USUÁRIO
+    public void cadastrarNovoUsuario(View view) {
         Intent intent = new Intent(this, CadastrarActivity.class);
+        startActivity(intent);
+    }
+
+    // ESQUECI A SENHA
+    public void esqueciAhSenha(View view) {
+        Intent intent = new Intent(this, EsqueciSenhaActivity.class);
         startActivity(intent);
     }
 
