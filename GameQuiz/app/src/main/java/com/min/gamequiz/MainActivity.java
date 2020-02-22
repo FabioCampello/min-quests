@@ -13,6 +13,7 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_entrar;
+    private Button btn_novo_cadastro;
 
     public static final String EMAIL = "email";
     public static final String SENHA = "senha";
@@ -30,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_novo_cadastro = (Button) findViewById(R.id.btnNovoCadastro);
+        btn_novo_cadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cadastrarNovoUsuario(v);
+            }
+        });
+
     }
 
     public void sendMessage(View view) {
@@ -42,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         intent.putExtra(EMAIL, email);
         intent.putExtra(SENHA, senha);
+        startActivity(intent);
+    }
+
+    public void cadastrarNovoUsuario(View v) {
+        Intent intent = new Intent(this, CadastrarActivity.class);
         startActivity(intent);
     }
 

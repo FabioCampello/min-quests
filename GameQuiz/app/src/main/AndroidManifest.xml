@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!--    TELA DE LOGIN    -->
         <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TelaInicialActivity" android:screenOrientation="portrait" android:parentActivityName=".MainActivity">
+        <!--    TELA INICIAL    -->
+        <activity android:name=".TelaInicialActivity" android:parentActivityName=".MainActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
+        </activity>
+
+        <!--    TELA DE CADASTRO DE NOVO USUÁRIO    -->
+        <activity android:name=".CadastrarActivity" android:parentActivityName=".MainActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity" />
         </activity>
 
