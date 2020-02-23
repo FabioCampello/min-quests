@@ -105,5 +105,5 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
     private void alert(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-    
+
 }
