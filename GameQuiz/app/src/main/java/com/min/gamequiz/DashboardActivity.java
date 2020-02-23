@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-public class TelaInicialActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
     private TextView textEmail;
     private TextView textSenha;
@@ -16,11 +14,11 @@ public class TelaInicialActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_inicial);
+        setContentView(R.layout.activity_dashboard);
 
         Intent intent = getIntent();
-        String email = intent.getStringExtra(MainActivity.EMAIL);
-        String senha = intent.getStringExtra(MainActivity.SENHA);
+        String email = intent.getStringExtra(LoginActivity.EMAIL);
+        String senha = intent.getStringExtra(LoginActivity.SENHA);
 
         textEmail = findViewById(R.id.txtEmail);
         textEmail.setText(email);

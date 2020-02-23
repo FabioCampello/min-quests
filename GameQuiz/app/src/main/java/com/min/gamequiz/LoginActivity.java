@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
-
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private Button btn_entrar;
     private Button btn_novo_cadastro;
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         // BOTÃO LOGIN
         btn_entrar = (Button) findViewById(R.id.btnEntrar);
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     // LOGIN/AUTENTICAÇÃO
     public void autenticar(View view) {
-        Intent intent = new Intent(this, TelaInicialActivity.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
         EditText edtEmail = (EditText) findViewById(R.id.edtEmail);
         EditText edtSenha = (EditText) findViewById(R.id.edtSenha);
 
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     // CADASTRAR NOVO USUÁRIO
     public void cadastrarNovoUsuario(View view) {
-        Intent intent = new Intent(this, CadastrarActivity.class);
+        Intent intent = new Intent(this, CadastroUsuarioActivity.class);
         startActivity(intent);
     }
 

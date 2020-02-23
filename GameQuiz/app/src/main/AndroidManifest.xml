@@ -13,7 +13,7 @@
 
         <!-- TELA DE LOGIN -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,31 +24,31 @@
 
         <!-- TELA INICIAL -->
         <activity
-            android:name=".TelaInicialActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".DashboardActivity"
+            android:parentActivityName=".LoginActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".LoginActivity" />
         </activity>
 
         <!-- TELA DE CADASTRO DE NOVO USUÁRIO -->
         <activity
-            android:name=".CadastrarActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".CadastroUsuarioActivity"
+            android:parentActivityName=".LoginActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".LoginActivity" />
         </activity>
 
         <!--    TELA ESQUECI A SENHA    -->
         <activity android:name=".EsqueciSenhaActivity"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".LoginActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".LoginActivity" />
         </activity>
 
     </application>

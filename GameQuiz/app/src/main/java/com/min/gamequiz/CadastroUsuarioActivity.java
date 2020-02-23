@@ -3,7 +3,6 @@ package com.min.gamequiz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CadastrarActivity extends AppCompatActivity {
+public class CadastroUsuarioActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
@@ -28,7 +27,7 @@ public class CadastrarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar);
+        setContentView(R.layout.activity_cadastro_usuario);
         auth = FirebaseAuth.getInstance();
 
         edtEmail = (EditText) findViewById(R.id.edtEmail);
@@ -42,7 +41,6 @@ public class CadastrarActivity extends AppCompatActivity {
                 String email = edtEmail.getText().toString().trim();
                 String senha = edtSenha.getText().toString().trim();
                 validaDadosDeEntrada(email, senha);
-                criarUser(email, senha);
             }
         });
     }
@@ -50,7 +48,7 @@ public class CadastrarActivity extends AppCompatActivity {
     // CADASTRA NOVO USUÁRIO NO FIREBASE
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(CadastrarActivity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(CadastroUsuarioActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
@@ -81,6 +79,7 @@ public class CadastrarActivity extends AppCompatActivity {
             alert("A senha deve ter no minímo 6 digítos!");
             return;
         }
+        criarUser(email, senha);
     }
 
     // VALIDA EMAIL
