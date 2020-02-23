@@ -3,6 +3,7 @@ package com.min.gamequiz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,38 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         });
     }
 
+    // VALIDA EMAIL
+    public static boolean isValidEmailAddressRegex(String email) {
+        boolean isEmailIdValid = false;
+        if (email != null && email.length() > 0) {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                isEmailIdValid = true;
+            }
+        }
+        return isEmailIdValid;
+    }
+
+    // VALIDA DADOS DE ENTRADA
+    private void validaDadosDeEntrada(String email, String senha) {
+        boolean isEmailValid = isValidEmailAddressRegex(email);
+        if(!isEmailValid) {
+            alert("E-mail inválido!");
+            return;
+        }
+
+        if(senha.length() < 6) {
+            alert("A senha deve ter no minímo 6 digítos!");
+            return;
+        }
+        criarUser(email, senha);
+        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     // CADASTRA NOVO USUÁRIO NO FIREBASE
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
@@ -65,35 +98,6 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     // EXIBE MENSAGEM AO USUÁRIO
     private void alert(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    // VALIDA DADOS DE ENTRADA
-    private void validaDadosDeEntrada(String email, String senha) {
-        boolean isEmailValid = isValidEmailAddressRegex(email);
-        if(!isEmailValid) {
-            alert("E-mail inválido!");
-            return;
-        }
-
-        if(senha.length() < 6) {
-            alert("A senha deve ter no minímo 6 digítos!");
-            return;
-        }
-        criarUser(email, senha);
-    }
-
-    // VALIDA EMAIL
-    public static boolean isValidEmailAddressRegex(String email) {
-        boolean isEmailIdValid = false;
-        if (email != null && email.length() > 0) {
-            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(email);
-            if (matcher.matches()) {
-                isEmailIdValid = true;
-            }
-        }
-        return isEmailIdValid;
     }
 
 }
