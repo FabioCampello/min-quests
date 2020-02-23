@@ -127,12 +127,7 @@ public class LoginActivity extends AppCompatActivity {
     //*********************************************************************
     // VALIDA DADOS DE ENTRADA
     private void validaDadosDeEntrada(String email, String senha) {
-        if(email == null || senha == null) {
-            alert("Email e senha devem ser informados!!");
-        }
-
         boolean isEmailValid = isValidEmailAddressRegex(email);
-
         if(!isEmailValid) {
             alert("E-mail inválido!");
             return;
