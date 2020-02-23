@@ -85,7 +85,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         }
 
         if(senha.length() < 6) {
-            alert("A senha deve ter no minímo 6 digítos!");
+            alert("A senha deve ter no mínímo 6 digítos!");
             return;
         }
         criarUser(email, senha);

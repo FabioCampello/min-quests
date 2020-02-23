@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if(senha.length() < 6) {
-            alert("A senha deve ter no minímo 6 digítos!");
+            alert("A senha deve ter no mínímo 6 digítos!");
             return;
         }
         login(email, senha);
