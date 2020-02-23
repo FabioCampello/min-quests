@@ -56,11 +56,11 @@ public class MainActivity extends AppCompatActivity {
     // LOGIN/AUTENTICAÇÃO
     public void autenticar(View view) {
         Intent intent = new Intent(this, TelaInicialActivity.class);
-        EditText editTextEmail = (EditText) findViewById(R.id.edtEmail);
-        EditText editTextSenha = (EditText) findViewById(R.id.edtSenha);
+        EditText edtEmail = (EditText) findViewById(R.id.edtEmail);
+        EditText edtSenha = (EditText) findViewById(R.id.edtSenha);
 
-        String email = editTextEmail.getText().toString();
-        String senha = editTextSenha.getText().toString();
+        String email = edtEmail.getText().toString();
+        String senha = edtSenha.getText().toString();
 
         intent.putExtra(EMAIL, email);
         intent.putExtra(SENHA, senha);

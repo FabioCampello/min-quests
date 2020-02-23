@@ -13,7 +13,7 @@ public class Conexao {
 
     private Conexao() {}
 
-    private static FirebaseAuth getFirebaseAuth() {
+    public static FirebaseAuth getFirebaseAuth() {
         if(firebaseAuth == null) {
             inicializarFirebaseAuth();
         }
