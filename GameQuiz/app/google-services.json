@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "963029231506",
+    "firebase_url": "https://minquests-a8a0c.firebaseio.com",
+    "project_id": "minquests-a8a0c",
+    "storage_bucket": "minquests-a8a0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963029231506:android:d1666a458d9fe15095034b",
+        "android_client_info": {
+          "package_name": "com.min.gamequiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963029231506-odmem4atmdhhl33v4903v15oav3tllpg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.min.gamequiz",
+            "certificate_hash": "a77c140c53ddf698ec0fc0d5f94208aef77d2208"
+          }
+        },
+        {
+          "client_id": "963029231506-lid3b611lmqsps3lp8lgilrmep2bmq0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1qAvsyh1NT-kQaQ6_UNlxNKsidV8A-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963029231506-lid3b611lmqsps3lp8lgilrmep2bmq0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
