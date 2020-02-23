@@ -22,8 +22,8 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private Button btn_cadastrar;
-    private EditText edtEmail;
-    private EditText edtSenha;
+    private EditText edt_email;
+    private EditText edt_senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,21 +31,36 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_usuario);
         auth = FirebaseAuth.getInstance();
 
-        edtEmail = (EditText) findViewById(R.id.edtEmail);
-        edtSenha = (EditText) findViewById(R.id.edtSenha);
+        inicializaComponentes ();
+        eventosDeClick();
 
-        // BOTÃO CADASTRO DE UM NOVO USUÁRIO
+    }
+
+    //*********************************************************************
+    // INICIALIZA COMPONENTES
+    private void inicializaComponentes() {
+        edt_email = (EditText) findViewById(R.id.edtEmail);
+        edt_senha = (EditText) findViewById(R.id.edtSenha);
         btn_cadastrar = (Button) findViewById(R.id.btnCadastrar);
+    }
+
+    //*********************************************************************
+    // EVENTOS DE CLICK
+    private void eventosDeClick() {
+
+        // EVENTO CADASTRAR NOVO USUÁRIO
         btn_cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edtEmail.getText().toString().trim();
-                String senha = edtSenha.getText().toString().trim();
+                String email = edt_email.getText().toString().trim();
+                String senha = edt_senha.getText().toString().trim();
                 validaDadosDeEntrada(email, senha);
             }
         });
+
     }
 
+    //*********************************************************************
     // VALIDA EMAIL
     public static boolean isValidEmailAddressRegex(String email) {
         boolean isEmailIdValid = false;
@@ -60,6 +75,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         return isEmailIdValid;
     }
 
+    //*********************************************************************
     // VALIDA DADOS DE ENTRADA
     private void validaDadosDeEntrada(String email, String senha) {
         boolean isEmailValid = isValidEmailAddressRegex(email);
@@ -78,6 +94,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         finish();
     }
 
+    //*********************************************************************
     // CADASTRA NOVO USUÁRIO NO FIREBASE
     private void criarUser(String email, String senha) {
         auth.createUserWithEmailAndPassword(email, senha)
@@ -86,8 +103,8 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             alert("Usuário cadastrado com sucesso!");
-                            edtEmail.setText("");
-                            edtSenha.setText("");
+                            edt_email.setText("");
+                            edt_senha.setText("");
                         } else {
                             alert("Não foi possível realizar o cadastro!");
                         }
@@ -95,6 +112,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 });
     }
 
+    //*********************************************************************
     // EXIBE MENSAGEM AO USUÁRIO
     private void alert(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
