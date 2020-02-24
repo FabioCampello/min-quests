@@ -17,8 +17,8 @@ public class DashboardActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
 
-    private TextView textEmail;
-    private TextView textSenha;
+    private TextView edtEmail;
+    private TextView edtId;
     private Button btnLogout;
 
     @Override
@@ -31,8 +31,8 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Conexao.logout();
-                textEmail.setText("");
-                textSenha.setText("");
+                edtEmail.setText("");
+                edtId.setText("");
                 finish();
             }
         });
@@ -40,16 +40,16 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void inicializaComponentes() {
-        textEmail = (TextView) findViewById(R.id.txtEmail);
-        textSenha = (TextView) findViewById(R.id.txtSenha);
+        edtEmail = (TextView) findViewById(R.id.edtEmail);
+        edtId = (TextView) findViewById(R.id.edtId);
         btnLogout = (Button) findViewById(R.id.btnLogout);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        textEmail.setText("");
-        textSenha.setText("");
+        edtEmail.setText("");
+        edtId.setText("");
         auth = Conexao.getFirebaseAuth();
         user = Conexao.getFirebaseUser();
         verificarUsuario();
@@ -59,8 +59,8 @@ public class DashboardActivity extends AppCompatActivity {
         if(user == null) {
             finish();
         } else {
-            textEmail.setText(user.getEmail());
-            textSenha.setText(user.getUid());
+            edtEmail.setText(user.getEmail());
+            edtId.setText(user.getUid());
         }
     }
 
