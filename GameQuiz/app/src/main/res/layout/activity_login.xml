@@ -31,7 +31,7 @@
     <Button
         android:id="@+id/btnEntrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:ems="10"
         android:text="ENTRAR"/>
@@ -44,7 +44,7 @@
         <Button
             android:id="@+id/btnEsqueciSenha"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:onClick="Login"
             android:text="Esqueci a senha" />
@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/btnNovoCadastro"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:onClick="Cadastrar"
             android:text="Novo cadastro" />

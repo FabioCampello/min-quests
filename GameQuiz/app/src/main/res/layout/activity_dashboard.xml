@@ -44,7 +44,7 @@
         android:text="Email"/>
 
     <Button
-        android:id="@+id/btnResponder"
+        android:id="@+id/btnInicioJogo"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginLeft="8dp"
